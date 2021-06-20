@@ -5,35 +5,35 @@
   tasks:
   - name: Provisioning EC2 Instance for Kubernetes Master Node
     ec2:
-      key_name: "Arthians"
+      key_name: "<key_name>"
       instance_type: "t2.micro"
       image: "ami-0ad704c126371a549"
       wait: yes
       instance_tags:
         Name: Master
       count: 1
-      vpc_subnet_id: "subnet-917c17dd"
+      vpc_subnet_id: "<subnet_id>"
       assign_public_ip: yes
       region: "ap-south-1"
       state: present
-      group_id: "sg-0e66af8eeaf5a5eb0"
+      group_id: "<sg>"
       aws_access_key: "{{ access }}"
       aws_secret_key: "{{ secret }}"
 
 
   - name: Provisioning EC2 Instance for Kubernetes Slave Node
     ec2:
-      key_name: "Arthians"
+      key_name: "<key_name>"
       instance_type: "t2.micro"
       image: "ami-0ad704c126371a549"
       wait: yes
       instance_tags:
         Name: Slave
       count: 2
-      vpc_subnet_id: "subnet-917c17dd"
+      vpc_subnet_id: "<subnet_id>"
       assign_public_ip: yes
       region: "ap-south-1"
       state: present
-      group_id: "sg-0e66af8eeaf5a5eb0"
+      group_id: "<sg>"
       aws_access_key: "{{ access }}"
       aws_secret_key: "{{ secret }}"
